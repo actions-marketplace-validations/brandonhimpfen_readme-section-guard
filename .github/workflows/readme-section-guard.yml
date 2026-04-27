@@ -1,0 +1,19 @@
+name: README Section Guard
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check README sections
+        uses: ./
+        with:
+          required-sections: 'Usage,Contributing,License'

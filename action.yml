@@ -1,0 +1,26 @@
+name: 'README Section Guard'
+description: 'Ensures required README sections such as License, Contributing, Usage, Installation, or Security are present.'
+author: 'Brandon Himpfen'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+inputs:
+  readme-path:
+    description: 'Path to the README file to check.'
+    required: false
+    default: 'README.md'
+  required-sections:
+    description: 'Comma-separated list of required README section headings.'
+    required: false
+    default: 'Usage,Contributing,License'
+  case-sensitive:
+    description: 'Whether section heading checks should be case-sensitive.'
+    required: false
+    default: 'false'
+  fail-on-missing-readme:
+    description: 'Whether to fail if the README file is missing.'
+    required: false
+    default: 'true'
+runs:
+  using: 'node20'
+  main: 'src/index.js'
